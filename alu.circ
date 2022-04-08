@@ -166,6 +166,7 @@ end TCL_Generic;
     <a name="clabel" val=""/>
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="clabelup" val="east"/>
+    <comp lib="0" loc="(120,150)" name="Clock"/>
     <comp lib="0" loc="(130,1060)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="Aa0"/>
