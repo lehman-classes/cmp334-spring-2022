@@ -12,6 +12,8 @@
 	.data 	# data declaration section; specifies values to be stored in memory
 number:		.word 24
 name:		.asciiz "heisenberg"
+breakline: 	.asciiz "\n"
+placeholder: 	.byte 1
 
 	.text 	# Start of code section
 	.globl main
@@ -31,11 +33,40 @@ main:
 	
 	la $t4, name
 	# base mode
-	lw $t5, -4($t4)
-	
+	lb $t5, 0($t4)
+	sb $t5, placeholder
 	li $v0, 4
-	la $a0, 0($t4)
+	la $a0, placeholder
 	syscall
+	la $a0, breakline
+	syscall
+	
+	lb $t5, 1($t4)
+	sb $t5, placeholder
+	li $v0, 4
+	la $a0, placeholder
+	syscall
+	la $a0, breakline
+	syscall
+
+	lb $t5, 2($t4)
+	sb $t5, placeholder
+	li $v0, 4
+	la $a0, placeholder
+	syscall
+	la $a0, breakline
+	syscall
+	
+	lb $t5, 3($t4)
+	sb $t5, placeholder
+	li $v0, 4
+	la $a0, placeholder
+	syscall
+	la $a0, breakline
+	syscall
+	#li $v0, 4
+	#la $a0, 0($t4)
+	#syscall
 
 	# exit the program
 exit:	li	$v0, 10  
